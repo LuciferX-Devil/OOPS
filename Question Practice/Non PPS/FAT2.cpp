@@ -31,13 +31,13 @@ int main(){
             count+=1;
             int empid,salary;string name;
             cin>>empid;
-            if(!cin){cout<<"Invalid input. Program exitting because you are a dumbass."<<endl;break;}
+            if(!cin){cout<<"Invalid input. Program exitting..."<<endl;break;}
             else{
                 cin>>name;
-                if(!cin){cout<<"Invalid input. Program exitting because you are a dumbass."<<endl;break;}
+                if(!cin){cout<<"Invalid input. Program exitting..."<<endl;break;}
                 else{
                     cin>>salary;
-                    if(!cin){cout<<"Invalid input. Program exitting because you are a dumbass."<<endl;break;}
+                    if(!cin){cout<<"Invalid input. Program exitting..."<<endl;break;}
                     else{emp[count] = new Employee(empid,name,salary);}
                 }
             }            
@@ -79,7 +79,7 @@ int main(){
                 cout<<"Employee deleted! Current number of employees: "<<count+1<<endl;
             }
         }
-        else if(input==4){cout<<"Thank you for wasting your time! :)\n";for(int i=0;i<count;i++){delete emp[i];}}
+        else if(input==4){cout<<"Thank you! :)\n";for(int i=0;i<count;i++){delete emp[i];}}
     }
 
     return 0;
