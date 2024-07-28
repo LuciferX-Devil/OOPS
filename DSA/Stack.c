@@ -32,7 +32,7 @@ int main(){
         switch(input){
             case 1:
             if(top>=size-1){printf("Stack overflow!\n");}
-            else{int value; printf("Enter value to be pushed: ");if(scanf("%d",&value)!=1){printf("Entry is not an int!\n");while(getchar()!='\n'){continue;}exit(EXIT_FAILURE);};push(stack,&top,value);}
+            else{int value; printf("Enter value to be pushed: ");if(scanf("%d",&value)!=1){printf("Entry is not an int!\n");while(getchar()!='\n'){continue;}};push(stack,&top,value);}
             break;
 
             case 2:
