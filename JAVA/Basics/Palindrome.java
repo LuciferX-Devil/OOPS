@@ -19,5 +19,6 @@ class Palindrome {
         Scanner input = new Scanner(System.in);
         String number = input.next();
         Palind(number);
+        input.close();
     }
 }
