@@ -1,4 +1,4 @@
-import java.uyil.Scanner;
+import java.util.Scanner;
 
 class Greatest{
   public static void main(String args[]){
@@ -13,5 +13,6 @@ class Greatest{
       if(b>c){System.out.print(b+" is greatest.");}
       else{System.out.print(c+" is greatest.");}
     }
+    input.close();
   }
 }
