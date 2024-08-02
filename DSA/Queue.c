@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void enQueue(int **queue, int* size){
-    int value;if(scanf("%d",&value)!=1){printf("Entry is not an int!");while(getchar()!='\n'){continue;}};
+    int value;if(scanf("%d",&value)!=1){printf("Entry is not an int!");while(getchar()!='\n'){continue;}exit(EXIT_FAILURE)};
 
     int *temp = realloc(*queue,((*size)+1)*sizeof(int));
     if(temp==NULL){printf("DMA_FAILURE");exit(EXIT_FAILURE);}
