@@ -1,58 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node{
-    int data;
-    struct Node* next;
+struct Carriage{
+    int number;
+    struct Carriage* next;
 };
 
-void appendNode(struct Node** head,int value){
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
+void Adder(struct Carriage** engine,int passenger){
+    struct Carriage* newCarriage = (struct Carriage*)malloc(sizeof(struct Carriage));
+    newCarriage->number=passenger;newCarriage->next=NULL;
 
-    if((*head)==NULL){
-        *head = newNode;
-    }
+    if(*engine==NULL){*engine=newCarriage;}
+
     else{
-        struct Node* current = *head;
-        while(current->next!=NULL){
-            current=current->next;
+        struct Carriage* currentCarriage = *engine;
+        while(currentCarriage->next!=NULL){
+            currentCarriage=currentCarriage->next;
         }
-        current->next=newNode;
+        currentCarriage->next=newCarriage;
     }
 }
 
-void display(struct Node* head){
-    if(head==NULL){printf("LL is empty!\n");}
+void display(struct Carriage *engine){
+    if(engine==NULL){printf("Track is empty!\n");}
+
     else{
-        struct Node* current = head;
-        while(current!=NULL){
-            printf("%d\n",current->data);
-            current=current->next;
+        struct Carriage* currentCarriage = engine;
+        while(currentCarriage!=NULL){
+            printf("%d\n",currentCarriage->number);
+            currentCarriage=currentCarriage->next;
         }
     }
 }
 
-void memClear(struct Node* head){
-    struct Node* current = head;
-    struct Node* tempNode;
-    while(current!=NULL){
-        tempNode = current->next;
-        free(current);
-        current = tempNode;
-    } 
+void memClear(struct Carriage *engine){
+    struct Carriage* currentCarriage = engine;
+    struct Carriage* tempCarriage;
+
+    while(currentCarriage!=NULL){
+        tempCarriage = currentCarriage->next;
+        free(currentCarriage);
+        currentCarriage = tempCarriage;
+    }
 }
 
-int main(){ 
-    struct Node* head = NULL;
-    display(head);
+int main(){
+    struct Carriage* engine = NULL;
+    display(engine);
 
-    appendNode(&head,10);
-    appendNode(&head,20);
-    appendNode(&head,30);
-    display(head);
+    Adder(&engine,10);
+    Adder(&engine,20);
+    Adder(&engine,30);
+    display(engine);
 
-    memClear(head);
+    free(engine);
+
     return 0;
 }
