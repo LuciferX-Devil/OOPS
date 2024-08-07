@@ -26,13 +26,18 @@ void Adder(struct Train** engine,int value){
 
 void Deleter(struct Train** engine,int value){
     struct Train* currentCarriage = *engine;
-    struct Train* prevCarriage = NULL;
+    struct Train* previousCarriage=NULL;
     while(currentCarriage!=NULL){
-        if(currentCarriage->passenger == value){}
-
-        else{
-            currentCarriage = currentCarriage->next;
+        if(currentCarriage->passenger==value){
+            if(previousCarriage==NULL){*engine=currentCarriage->next;}
+            else{
+                previousCarriage->next=currentCarriage->next;
+            }
+            free(currentCarriage);
+            return;
         }
+            previousCarriage=currentCarriage;
+            currentCarriage=currentCarriage->next;
     }
 }
 
@@ -65,6 +70,11 @@ int main(){
     Adder(&engine,10);
     Adder(&engine,20);
     Adder(&engine,30);
+    display(engine);
+
+    Deleter(&engine,20);
+    Deleter(&engine,10);
+    Deleter(&engine,30);
     display(engine);
 
     return 0;
