@@ -1,0 +1,27 @@
+# Security Specification for secure repository deployments.
+## Ensure no secrets or environment values that may contain security features.
+.env
+.secrets
+.sec
+.private
+
+## Configurations that might contain secrets
+config.js
+security.json
+secrets.json
+private.json
+config.toml
+security.toml
+secrets.toml
+private.toml
+config.yml
+security.yml
+secrets.yml
+private.yml
+config.ini
+security.ini
+secrets.ini
+private.ini
+
+## Ensure workflows are not included on commit.
+.github/workflows
