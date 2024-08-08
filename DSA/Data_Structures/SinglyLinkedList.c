@@ -29,6 +29,7 @@ void AppendNode(struct Node** head){
         current->next=newNode;
     }
     }
+    printf("Appended %d!\n",value);
 }
 
 void DeleteNode(struct Node** head){
@@ -41,6 +42,7 @@ void DeleteNode(struct Node** head){
 
     while(current!=NULL){
         if(current->data==value){
+            printf("Deleted %d!\n",current->data);
             if(previous==NULL){*head=current->next;}
             else{
                 previous->next=current->next;
